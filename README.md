@@ -1,4 +1,4 @@
-# Cranfield Internship — Aerodynamic Wing Optimisation
+# Cranfield Internship: Aerodynamic Wing Optimisation
 
 A parametric wing design study using OpenVSP's vortex-lattice solver (VSPAERO) coupled with Random Forest surrogate models to explore and optimise NACA four-series airfoil configurations for different mission profiles.
 
