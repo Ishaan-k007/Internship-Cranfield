@@ -3,11 +3,16 @@ import csv
 import pandas as pd
 import os
 
-# Add OpenVSP Python module path
-sys.path.append(r"C:\Users\khull\OneDrive\Documents\OpenVsp\OpenVSP-3.43.0-win64\python\openvsp")
+# === CONFIGURATION — edit these paths to match your OpenVSP installation ===
+OPENVSP_PYTHON_PATH = r"C:\OpenVSP\OpenVSP-3.43.0-win64\python\openvsp"
+OPENVSP_BIN_PATH    = r"C:\OpenVSP\OpenVSP-3.43.0-win64\python\openvsp\openvsp"
+RESULTS_DIR         = r"C:\Results_Internship"
+# ===========================================================================
+
+sys.path.append(OPENVSP_PYTHON_PATH)
 import vsp
 
-vsp.SetVSPAEROPath(r"C:\Users\khull\OneDrive\Documents\OpenVsp\OpenVSP-3.43.0-win64\python\openvsp\openvsp")
+vsp.SetVSPAEROPath(OPENVSP_BIN_PATH)
 
 
 # Analysis conditions
@@ -102,7 +107,7 @@ for aoa in aoas:
 
                         
                         
-                        output_dir = r"C:\Users\khull\Results_Internship"
+                        output_dir = RESULTS_DIR
                         os.makedirs(output_dir, exist_ok=True)
 
                         # Save geometry for checking
@@ -111,7 +116,7 @@ for aoa in aoas:
                         print(f" Saved geometry to {vsp_filename}")
 
                         # Save VSPAERO analysis run file
-                        output_dir = r"C:\Users\khull\OpenVSP-3.43.0-win64\python\openvsp\openvsp"
+                        output_dir = OPENVSP_BIN_PATH
                         os.makedirs(output_dir, exist_ok=True)
                         
                         
@@ -192,7 +197,7 @@ for aoa in aoas:
                     except Exception as e:
                         print(f" Error for camber={m}, cloc={p}, thickness={t}: {e}")
 print(df)
-output_dir = r"C:\Users\khull\Results_Internship"
+output_dir = RESULTS_DIR
 os.makedirs(output_dir, exist_ok=True)
 csv_path = os.path.join(output_dir, "vspaero_results.csv")
 df.to_csv(csv_path, index=False)

@@ -4,10 +4,10 @@ from sklearn.ensemble import RandomForestRegressor
 from scipy.optimize import minimize
 
 # Load your data
-df = pd.read_csv('processed_airfoil_data.csv')
+df = pd.read_csv('vspaero_results.csv')
 
 # Features and targets
-X = df[['Camber', 'CamberLoc', 'Thickness']]
+X = df[['Camber', 'Camber_Loc', 'Thickness']]
 y_ld = df['L/D']
 y_cd = df['CD']
 
@@ -18,7 +18,7 @@ rf_cd = RandomForestRegressor(n_estimators=200, random_state=42).fit(X, y_cd)
 # Bounds based on your dataset
 bounds = [
     (X['Camber'].min(), X['Camber'].max()),
-    (X['CamberLoc'].min(), X['CamberLoc'].max()),
+    (X['Camber_Loc'].min(), X['Camber_Loc'].max()),
     (X['Thickness'].min(), X['Thickness'].max())
 ]
 

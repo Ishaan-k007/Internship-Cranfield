@@ -1,0 +1,28 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# OpenVSP output files
+*.vsp3
+*.history
+*.lod
+*.polar
+*.fem
+*.vspaero
+
+# Results directories
+Results_Internship/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
